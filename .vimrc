@@ -48,6 +48,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'morhetz/gruvbox'
+Plug 'ycm-core/YouCompleteMe'
 
 " Initialize plugin system
 call plug#end()
