@@ -58,3 +58,4 @@ let g:vimtex_view_method='skim'
 let g:vimtex_view_automatic=1
 
 " map ,r :w<CR>:silent !/Applications/Skim.app/Contents/SharedSupport/displayline <C-r>=line('.')<CR> %<.pdf<CR>
+so ~/.vimrc/myshit/tex.vim
