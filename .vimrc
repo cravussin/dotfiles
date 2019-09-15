@@ -45,12 +45,16 @@ call plug#begin('~/.vim/plugged')
 
 " Unmanaged plugin (manually installed and updated)
 " Plug '~/my-prototype-plugin'
-
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'morhetz/gruvbox'
 Plug 'ycm-core/YouCompleteMe'
+Plug 'lervag/vimtex'
 
 " Initialize plugin system
 call plug#end()
 
 color gruvbox
+let g:vimtex_view_method='skim'
+let g:vimtex_view_automatic=1
+
+" map ,r :w<CR>:silent !/Applications/Skim.app/Contents/SharedSupport/displayline <C-r>=line('.')<CR> %<.pdf<CR>
