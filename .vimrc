@@ -28,7 +28,7 @@ call plug#begin('~/.vim/plugged')
 " Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 " On-demand loading
-" Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 " Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
 " Using a non-master branch
@@ -45,17 +45,29 @@ call plug#begin('~/.vim/plugged')
 
 " Unmanaged plugin (manually installed and updated)
 " Plug '~/my-prototype-plugin'
+" TMUX NAVIGATION 
 Plug 'christoomey/vim-tmux-navigator'
+" COLORS 
 Plug 'morhetz/gruvbox'
-Plug 'ycm-core/YouCompleteMe'
+" LATEX INTEGRATION 
 Plug 'lervag/vimtex'
-
+" AUTOCOMPLETION 
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Initialize plugin system
 call plug#end()
 
 color gruvbox
-let g:vimtex_view_method='skim'
 let g:vimtex_view_automatic=1
-
+set background=dark
 " map ,r :w<CR>:silent !/Applications/Skim.app/Contents/SharedSupport/displayline <C-r>=line('.')<CR> %<.pdf<CR>
+" Vimtex bindings + config
 so ~/.vim/myshit/tex.vim
+
+" MAPPINGS 
+" Toggle NERDTree 
+map <C-n> :NERDTreeToggle<CR>
+" Tab / Shift Tab forp completion navigation 
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>" 
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>" 
+" CR selects first suggestion
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
